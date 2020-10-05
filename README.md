@@ -3,21 +3,57 @@
 This respository is intended for the use of Focus College Students enrolled in the Advanced Certificate of Software Development located in Kelowna, BC and Surrey, BC.
 
 ---
+# Software Development Final Assignment
 
-You can remove everything below the above line once you're ready to edit this file.
 
-## Getting Started
+### Version 1.0.1
 
-Please read the [Final Test Requirements](./assignment/readme.md)
 
-## IMPORTANT NOTICE
+## How to Use the package.json Scripts
+--------------------------------------
+In this version of the Final Assignment, I have included three scripts that you can run: `compile`, `start`, and `build`.
 
-DO NOT PUSH THIS REPOSITORY TO YOUR GITHUB ACCOUNT OR MAKE A PULL REQUEST INTO THE FINAL UNTIL DIRECTLY INSTRUCTED TO DO SO. THIS IS A TEST AND CANNOT BE COLLABORATED ON WITH OTHER STUDENTS.
+* `compile`, runs the tsc command and compiles the project
 
-## Deadline For Submissions
+Ecample:
 
-The deadline for this assignment is 5PM on Friday October 9th, 2020. No extensions can be given for this final.
+    ```
+    npm run compile
+    ```
 
-## Notes
+* `start`, runs the index.js file in the "dist" folder, which is created by the tsconfig.json file.
 
-This is a PUBLIC repository attached to your github account and something that you can demonstrate to potential employers. Take care to ensure professionalism for both you and your team's sake. This will be the first entry into your professional portfolio.
+Example:
+
+    ```
+    npm run start
+    ```
+* `build`, runs both the `compile`, and `start` scripts
+ 
+ Example:
+
+    ```
+    npm run build
+    ```
+
+## Developing Instrucions 
+-------------------------
+Download this application from Github:
+```
+git clone git@github.com:CBoettcher19590/developing-software-intro-final.git
+```
+
+If already downloaded:
+```
+git pull origin master
+```
+
+To install the dependencies:
+```
+npm install
+```
+
+To build and run the program:
+```
+npm run build
+```
