@@ -1,8 +1,8 @@
-export default function greeting(){
-    const firstPart:string = "Hello";
-    const secondPart:string = " Terminal!";
+export default function greeting() {
+    const firstPart = "Hello";
+    const secondPart = " Terminal!";
 
-    const message:string = firstPart + secondPart;
+    const message: string = firstPart + secondPart;
 
     return console.log(message);
 }

@@ -6,12 +6,12 @@ This respository is intended for the use of Focus College Students enrolled in t
 # Software Development Final Assignment
 
 
-### Version 1.0.4
+### Version 1.0.5
 
 
 ## How to Use the package.json Scripts
 --------------------------------------
-In this version of the Final Assignment, I have included seven scripts that you can run: `compile`, `start`, `format`, `lint`, `test`, `build`, and `build:dev`
+In this version of the Final Assignment, I have included eight scripts that you can run: `compile`, `start`, `format`, `lint`, `test`, `test:coverage`, `build`, and `build:dev`
 
 ### Compile
 
@@ -63,6 +63,16 @@ Example:
 npm run test
 ```
 
+
+### Test with Coverage
+
+* `test:coverage`, runs the tests for the project, as well as displaying a coverage map using "nyc/istanbul" that shows how much of our code was tested. 
+
+Example:
+
+```
+npm run test:coverage
+```
 
 
 ### Build
