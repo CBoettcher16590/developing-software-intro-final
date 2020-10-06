@@ -1,6 +1,7 @@
 import { Arguments, Argv } from "yargs";
+import { calcHouseMaterials } from '../calculator/index'
 
-export function calcHouseMaterials(yargs: Argv): void {
+export function calcHouseMaterialsCommand(yargs: Argv): void {
     yargs.command(
         // Creates a new yargs command
         "calc-house-materials",
@@ -45,18 +46,8 @@ export function calcHouseMaterials(yargs: Argv): void {
             }>
         ) {
             //Here we can insert our code for the command function
-
-            console.log("The parameters passed in are as follows");
-            console.log(
-                "Length: " +
-                    args.length +
-                    ", Width: " +
-                    args.width +
-                    ", IsFeet: " +
-                    args.isFeet +
-                    ", Name: " +
-                    args.name
-            );
+            calcHouseMaterials(args.name, args.width, args.length, args.isFeet);
+            
         }
     );
 }

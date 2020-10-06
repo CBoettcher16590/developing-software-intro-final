@@ -1,10 +1,10 @@
 import yargs = require('yargs');
-import { calcHouseMaterials } from './commands/calcHouseMaterials';
-import { getHouseMaterials } from './commands/getHouseMaterials';
+import { calcHouseMaterialsCommand } from './commands/calcHouseMaterials';
+import { getHouseMaterialsCommand } from './commands/getHouseMaterials';
 
-calcHouseMaterials( yargs );
+calcHouseMaterialsCommand( yargs );
 
-getHouseMaterials( yargs );
+getHouseMaterialsCommand( yargs );
 
 //tells yargs to include the --help flag
 yargs.help();
