@@ -4,13 +4,41 @@ This respository is intended for the use of Focus College Students enrolled in t
 
 ---
 # Software Development Final Assignment
+### Version 1.1.0
 
+# How to use Yargs Commands
 
-### Version 1.0.5
+## CalcHouseMaterials
 
+The `calc-house-materials` command takes four parameters to work properly: `length`, `width`, `isFeet`, and `name`. In this version of the project the command will only output the parameters entered to the command line.
 
-## How to Use the package.json Scripts
---------------------------------------
+### CalcHouseMaterials Parameters:
+* The `length` of the house (preceeded by the `-l` flag)
+* The `width` of the house (preceeded by the `-w` flag)
+* `isFeet` gives us the unit of measurement for a house. Enter `true` for feet, or `false` for inches (preceeded by the `--isFeet` flag)
+* The `name` of the house (preceeded by the `-n` flag)
+
+Example: 
+
+```
+npm run dist/index calc-house-materials -l 10 -w 16 --isFeet true -n TestHouse 
+```
+
+## GetHouseMaterials
+
+The `get-house-materials` command takes only one parameter: `name`. In this version of the project the command will only output the parameter that was entered to the command line.
+
+### CalcHouseMaterials Parameters:
+* The `name` of the house (preceeded by the `-n` flag)
+
+Example: 
+
+```
+npm run dist/index get-house-materials -n TestHouse 
+```
+
+# How to Use the package.json Scripts
+
 In this version of the Final Assignment, I have included eight scripts that you can run: `compile`, `start`, `format`, `lint`, `test`, `test:coverage`, `build`, and `build:dev`
 
 ### Compile
