@@ -28,7 +28,7 @@ npm run dist/index calc-house-materials -l 10 -w 16 --isFeet true -n TestHouse
 
 The `get-house-materials` command takes only one parameter: `name`. In this version of the project the command will only output the parameter that was entered to the command line.
 
-### CalcHouseMaterials Parameters:
+### GetHouseMaterials Parameters:
 * The `name` of the house (preceeded by the `-n` flag)
 
 Example: 

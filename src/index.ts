@@ -1,5 +1,5 @@
 import yargs = require('yargs');
-import { calcHouseMaterials } from './commands/calcHouseMaterials';
+import { calcHouseMaterials } from './commands/calcHouseMaterials'
 import { getHouseMaterials } from './commands/getHouseMaterials';
 
 calcHouseMaterials( yargs );
