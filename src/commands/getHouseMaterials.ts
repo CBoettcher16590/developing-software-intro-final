@@ -1,7 +1,7 @@
 import { Arguments, Argv } from "yargs";
+import { getHouseMaterials } from "../calculator/index";
 
-export function getHouseMaterialsCommand( yargs:Argv ):void {
-
+export function getHouseMaterialsCommand(yargs: Argv): void {
     yargs.command(
         // Creates a new yargs command
         "get-house-materials",
@@ -14,7 +14,7 @@ export function getHouseMaterialsCommand( yargs:Argv ):void {
             name: {
                 type: "string",
                 alias: "n",
-                description: "The name of the saved house"
+                description: "The name of the saved house",
             },
         },
 
@@ -24,11 +24,9 @@ export function getHouseMaterialsCommand( yargs:Argv ):void {
                 n: string;
             }>
         ) {
-        //Here we can insert our code for the command function   
-        
-            console.log("The parameter passed in Name: " + args.name );
+            //Here we can insert our code for the command function
+
+            getHouseMaterials(args.name);
         }
-
     );
-
 }
