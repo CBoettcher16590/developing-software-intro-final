@@ -6,12 +6,12 @@ This respository is intended for the use of Focus College Students enrolled in t
 # Software Development Final Assignment
 
 
-### Version 1.0.3
+### Version 1.0.4
 
 
 ## How to Use the package.json Scripts
 --------------------------------------
-In this version of the Final Assignment, I have included six scripts that you can run: `compile`, `start`, `format`, `lint`, `build`, and `build:dev`
+In this version of the Final Assignment, I have included seven scripts that you can run: `compile`, `start`, `format`, `lint`, `test`, `build`, and `build:dev`
 
 ### Compile
 
@@ -53,6 +53,17 @@ Example:
 npm run format
 ```
 
+### Test
+
+* `test`, runs the tests that we write in our "tests" folder.
+
+Example:
+
+```
+npm run test
+```
+
+
 
 ### Build
 
@@ -66,7 +77,7 @@ npm run build
 
 ### Build:dev
 
-* `build:dev`, runs all the commands. First `lint`, followed by `prettier`, and then it will compile and run the program.
+* `build:dev`, runs all the commands. First `lint`, followed by `prettier`, `test` and then it will compile and run the program.
  
  Example:
 
