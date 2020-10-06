@@ -6,54 +6,73 @@ This respository is intended for the use of Focus College Students enrolled in t
 # Software Development Final Assignment
 
 
-### Version 1.0.2
+### Version 1.0.3
 
 
 ## How to Use the package.json Scripts
 --------------------------------------
-In this version of the Final Assignment, I have included five scripts that you can run: `compile`, `start`, `lint`, `build`, and `build:lint`
+In this version of the Final Assignment, I have included six scripts that you can run: `compile`, `start`, `format`, `lint`, `build`, and `build:dev`
 
+### Compile
 
 * `compile`, runs the tsc command and compiles the project
 
 Ecample:
 
-    ```
-    npm run compile
-    ```
+```
+npm run compile
+```
 
+### Start
 
 * `start`, runs the index.js file in the "dist" folder, which is created by the tsconfig.json file.
 
 Example:
 
-    ```
-    npm run start
-    ```
+```
+npm run start
+```
+
+### ESLint
 
 * `lint`, runs eslint to "lint" our code. ESLint is a static code analysis tool for identifying problematic patterns found in JavaScript code.
 
 Example:
 
-    ```
-    npm run lint
-    ```
+```
+npm run lint
+```
+
+### Prettier
+
+* `format`, runs the npm package "prettier". This auto format our code to make it look pretty.
+
+Example:
+
+```
+npm run format
+```
+
+
+### Build
 
 * `build`, runs both the `compile`, and `start` scripts
  
  Example:
 
-    ```
-    npm run build
-    ```
+```
+npm run build
+```
 
-* `build:lint`, runs the `lint` command first, then will run the `build` command to compile, and start the project.
+### Build:dev
+
+* `build:dev`, runs all the commands. First `lint`, followed by `prettier`, and then it will compile and run the program.
  
  Example:
 
-    ```
-    npm run build:lint
-    ```
+```
+npm run build:dev
+```
 
 ## Developing Instrucions 
 -------------------------
