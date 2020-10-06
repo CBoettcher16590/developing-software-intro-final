@@ -1,10 +1,12 @@
-export default function greeting() {
-    const firstPart = "Hello";
-    const secondPart = " Terminal!";
+import yargs = require('yargs');
+import { calcHouseMaterials } from './commands/calcHouseMaterials';
 
-    const message: string = firstPart + secondPart;
+calcHouseMaterials( yargs );
 
-    return console.log(message);
-}
 
-greeting();
+
+//tells yargs to include the --help flag
+yargs.help();
+
+//tells yargs to parse the parameters
+yargs.parse();
