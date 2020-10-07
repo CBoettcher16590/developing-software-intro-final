@@ -2,7 +2,7 @@
 [Go Back](../../README.md)
 
 
-In this Version of the project (`1.1.6`), the `calcHouseMaterials`, and `getHouseMaterials` functions will display their stored infromation in the command line. I have created an interface called `IHouseOutput` that ensures that the output of each of these functions will work for Gerlads purposes. 
+In this Version of the project (`1.1.7`), the `calcHouseMaterials`, and `getHouseMaterials` functions will display their stored infromation in the command line. I have created an interface called `IHouseOutput` that ensures that the output of each of these functions will work for Gerlads purposes. 
 
 ## calcHouseMaterials( name:string, width:number, length:number, unit:boolean )
 
@@ -88,4 +88,25 @@ Output Example for a House 96inches x 96inches:
 
 ```javascript
 8
+```
+
+## calcMaterials( width:number, length:number, calcWallLumber, calcDrywall, caclPlywood ) Function
+The `calcMaterials` function takes five parameters(width, length, calcWallLumber, CalcDrywall, CalcPlywood), and will return an object the matches the IHouseOutput interface.
+
+Output Example for a calculattion with the following parameter: `calcMaterials(96, 96, calcWallLumber, calcDrywall, calcPlywood)`:
+
+```javascript
+{
+  name: 'placeholder',
+  house: {
+    width: 96,
+    length: 96,
+    outsideWallArea: 36864,
+    insideWallArea: 36836,
+    ceilingArea: 9216
+  },
+  materials: { lumber: { boards: 28, posts: 4 }, plywood: 8, drywall: 10 },
+  waste: { lumber: { boards: 0, posts: 0 }, plywood: 0, drywall: 0 },
+  purchase: { lumber: { boards: 0, posts: 0 }, plywood: 0, drywall: 0 }
+}
 ```

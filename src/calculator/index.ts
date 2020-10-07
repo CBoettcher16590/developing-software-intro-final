@@ -151,34 +151,39 @@ export function calcPlywood(width: number, length: number): number {
     return plywoodSheetsTotal;
 }
 
-export function calcMaterials(width:number, length:number, calcWallLumber:any, calcDrywall:any, calcPlywood:any):IHouseOutput{
-
+export function calcMaterials(
+    width: number,
+    length: number,
+    calcWallLumber: any,
+    calcDrywall: any,
+    calcPlywood: any
+): IHouseOutput {
     const lumberInWidth = calcWallLumber(width);
     const lumberInLength = calcWallLumber(length);
 
-    var totalBoards = (lumberInLength.studs * 2 ) + (lumberInWidth.studs * 2 );
-    var totalPosts = lumberInLength.posts + lumberInWidth.posts;
+    const totalBoards = lumberInLength.studs * 2 + lumberInWidth.studs * 2;
+    let totalPosts = lumberInLength.posts + lumberInWidth.posts;
     const drywall = calcDrywall(width, length);
     const plywood = calcPlywood(width, length);
 
     //Checks to see if there are EXTRA posts needed, if not, then it adds the 4 corner posts
-    if(totalPosts === 0){
+    if (totalPosts === 0) {
         totalPosts = 4;
     }
-    
+
     return {
         name: "placeholder",
         house: {
             width: width,
             length: length,
-            outsideWallArea: (length * width) *4,
-            insideWallArea: ((length * width) *4) - (totalPosts * 7),
-            ceilingArea: length*width,
+            outsideWallArea: length * width * 4,
+            insideWallArea: length * width * 4 - totalPosts * 7,
+            ceilingArea: length * width,
         },
 
         materials: {
             lumber: {
-                boards:totalBoards,
+                boards: totalBoards,
                 posts: totalPosts,
             },
 

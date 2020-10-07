@@ -1,7 +1,7 @@
 import { expect } from "chai";
 import "mocha";
-
-import { calcDrywall, calcHouseMaterials, calcWallLumber, getHouseMaterials, calcPlywood } from '../src/calculator/index';
+import IHouseOutput from '../src/calculator/interfaces';
+import { calcDrywall, calcHouseMaterials, calcWallLumber, getHouseMaterials, calcPlywood, calcMaterials } from '../src/calculator/index';
 // import { Arguments, Argv } from "yargs";
 
 // These are the argments that I will need to pass in to my tests
@@ -61,3 +61,21 @@ describe("calcPlywood Function", () => {
     });
 });
 
+//Testing to make sure calcPlywood is returning what I want
+describe("calcMateruals Function", () => {
+    it("should return the materials from calcMaterials function", () => {
+        const result = calcMaterials(96, 96, calcWallLumber, calcDrywall, calcPlywood);
+        expect(result.materials.drywall).to.equal(10);
+        expect(result.materials.lumber.boards).to.equal(28);
+        expect(result.materials.lumber.posts).to.equal(4);
+        expect(result.materials.plywood).to.equal(8);
+    });
+    it("should return the House properties from calcMaterials function", () => {
+        const result = calcMaterials(96, 96, calcWallLumber, calcDrywall, calcPlywood);
+        expect(result.house.width).to.equal(96);
+        expect(result.house.length).to.equal(96);
+        expect(result.house.outsideWallArea).to.equal(36864);
+        expect(result.house.insideWallArea).to.equal(36836);
+        expect(result.house.ceilingArea).to.equal(9216);
+    });
+});
