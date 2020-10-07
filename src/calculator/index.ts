@@ -4,8 +4,8 @@ import IHouseOutput from "../calculator/interfaces";
 const BEAM_WIDTH = 3.5;
 const BOARD_LENGTH = 8 * 12;
 const STUDS_OFFSET = 16;
-
 const BEAMS_REQUIRED_EVERY_INCHES = 20 * 12;
+const drywall = {width:48, length:96, area:4608};
 
 export function calcHouseMaterials(
     name: string,
@@ -121,19 +121,14 @@ export function calcWallLumber(inches: number) {
 
 export function calcDrywall(width: number, length: number): number {
     //Drywall is 4*8ft... Walls are 8' high, we can place drywall vertically.
-    const drywallWidth = 48; //Gives us width in inches
-    const drywallArea = 4608;
     const ceilingArea:number = width * length; 
     //Use Math.ceil because we cant buy partial drywall sheets
     //We are rounding at the end to minimize waste
-    const drywallSheetsWidth: number = Math.ceil((width / drywallWidth) * 2);
-    const drywallSheetsLength: number = Math.ceil((length / drywallWidth) * 2);
-    const drywallSheetsCeiling:number = Math.ceil(ceilingArea / drywallArea)
+    const drywallSheetsWidth: number = Math.ceil((width / drywall.width) * 2);
+    const drywallSheetsLength: number = Math.ceil((length / drywall.width) * 2);
+    const drywallSheetsCeiling:number = Math.ceil(ceilingArea / drywall.area)
 
     const drywallSheets = drywallSheetsWidth + drywallSheetsLength + drywallSheetsCeiling;
-
-
-
 
     return drywallSheets;
 }
