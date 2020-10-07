@@ -151,6 +151,66 @@ export function calcPlywood(width: number, length: number): number {
     return plywoodSheetsTotal;
 }
 
+export function calcMaterials(width:number, length:number, calcWallLumber:any, calcDrywall:any, calcPlywood:any):IHouseOutput{
+
+    const lumberInWidth = calcWallLumber(width);
+    const lumberInLength = calcWallLumber(length);
+
+    var totalBoards = (lumberInLength.studs * 2 ) + (lumberInWidth.studs * 2 );
+    var totalPosts = lumberInLength.posts + lumberInWidth.posts;
+    const drywall = calcDrywall(width, length);
+    const plywood = calcPlywood(width, length);
+
+    //Checks to see if there are EXTRA posts needed, if not, then it adds the 4 corner posts
+    if(totalPosts === 0){
+        totalPosts = 4;
+    }
+    
+    return {
+        name: "placeholder",
+        house: {
+            width: width,
+            length: length,
+            outsideWallArea: (length * width) *4,
+            insideWallArea: ((length * width) *4) - (totalPosts * 7),
+            ceilingArea: length*width,
+        },
+
+        materials: {
+            lumber: {
+                boards:totalBoards,
+                posts: totalPosts,
+            },
+
+            plywood: plywood,
+
+            drywall: drywall,
+        },
+
+        waste: {
+            lumber: {
+                boards: 0,
+                posts: 0,
+            },
+
+            plywood: 0,
+
+            drywall: 0,
+        },
+
+        purchase: {
+            lumber: {
+                boards: 0,
+                posts: 0,
+            },
+
+            plywood: 0,
+
+            drywall: 0,
+        },
+    };
+}
+
 //This function will check to see if we need to add an extra beam(a wall over 20ft needs an extra beam)
 function getWallLengthOverMinimumRequiredBeforeBeam(inches: number): number {
     return Math.max(inches - BEAMS_REQUIRED_EVERY_INCHES, 0);

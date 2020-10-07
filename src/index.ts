@@ -1,7 +1,7 @@
 import yargs = require('yargs');
 import { calcHouseMaterialsCommand } from './commands/calcHouseMaterials';
 import { getHouseMaterialsCommand } from './commands/getHouseMaterials';
-import { calcWallLumber, calcDrywall, calcPlywood } from './calculator/index';
+import { calcWallLumber, calcDrywall, calcPlywood, calcMaterials } from './calculator/index';
 
 calcHouseMaterialsCommand( yargs );
 
@@ -11,6 +11,7 @@ getHouseMaterialsCommand( yargs );
 // console.log(calcWallLumber(96));
 // console.log(calcDrywall(96, 96));
 // console.log(calcPlywood(96, 96));
+console.log(calcMaterials(96,96, calcWallLumber, calcDrywall, calcPlywood));
 
 
 //tells yargs to include the --help flag
