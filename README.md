@@ -4,7 +4,7 @@ This respository is intended for the use of Focus College Students enrolled in t
 
 ---
 # Software Development Final Assignment
-### Version 1.1.2
+### Version 1.1.3
 
 # How to use Yargs Commands
 
@@ -124,7 +124,7 @@ npm run build:dev
 ```
 ## Calculator Information
 
-The calculator in this version(1.1.2) has two functions: `calcHouseMaterials`, and `getHouseMaterials`. This function takes the parameters passed in with the `calc-house-materials` command and console.logs the values. 
+The calculator in this version(1.1.3) has two functions: `calcHouseMaterials`, and `getHouseMaterials`
 
 * `calcHouseMaterials`: takes the parameters passed in with the `calc-house-materials` command and console.logs the values.
 * `getHouseMaterials`: takes the parameter passed in with the `get-house-materials` command and console.logs the value.

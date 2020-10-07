@@ -21,7 +21,7 @@ export function calcHouseMaterialsCommand(yargs: Argv): void {
                 alias: "l",
                 description: "The length of the house",
             },
-            //note: isFeet has no alias and we must use "isFeet"
+            //note: isFeet has no alias and we must use "--isFeet"
             isFeet: {
                 type: "boolean",
                 description: "The width of the house",
@@ -33,7 +33,7 @@ export function calcHouseMaterialsCommand(yargs: Argv): void {
                     "The name given to the house. Used to save and lookup houses",
             },
         },
-
+        //Arguments passed into the function
         function (
             args: Arguments<{
                 width: number;
@@ -46,7 +46,14 @@ export function calcHouseMaterialsCommand(yargs: Argv): void {
             }>
         ) {
             //Here we can insert our code for the command function
-            calcHouseMaterials(args.name, args.width, args.length, args.isFeet);
+            console.log(
+                calcHouseMaterials(
+                    args.name,
+                    args.width,
+                    args.length,
+                    args.isFeet
+                )
+            );
         }
     );
 }

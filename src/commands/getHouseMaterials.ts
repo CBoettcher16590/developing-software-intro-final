@@ -26,7 +26,7 @@ export function getHouseMaterialsCommand(yargs: Argv): void {
         ) {
             //Here we can insert our code for the command function
 
-            getHouseMaterials(args.name);
+            console.log(getHouseMaterials(args.name));
         }
     );
 }

@@ -2,12 +2,11 @@
 [Go Back](../../README.md)
 
 
-In this Version of the project(1.1.2), the `calcHouseMaterials`, and `getHouseMaterials` functions will display their respective parameters in the command line, but in future versions they will be responcible for calculating the materials needed, and recalling saved jobs. 
-
+In this Version of the project(1.1.3), the `calcHouseMaterials`, and `getHouseMaterials` functions will display their stored infromation in the command line. I have created an interface called `IHouseOutput` that ensures that the output of each of these functions will work for Gerlads purposes. 
 
 ## calcHouseMaterials( name:string, width:number, length:number, unit:boolean )
 
-The `calcHouseMaterials` function takes four parameters: `name`, `length`, `width`, and `units`. It is used within the `calc-house-materials` command, and gets its values passed from this command. 
+The `calcHouseMaterials` function takes four parameters: `name`, `length`, `width`, and `units`. It is used within the `calc-house-materials` command, and gets its values passed from here. 
 
 Example:
 
@@ -17,8 +16,21 @@ node dist/index calc-house-materials -l 10 -w 10 -n Test --isFeet true
 ```
 
 Our calcHouseMaterials Function will return:
-```
-Length: 10 | Width: 10 | Name: Test | Units: feet
+<!-- This will be terminal output not javascript, but javascript increases readability in readme -->
+```javascript
+{
+  name: 'Test',
+  house: {
+    width: 10,
+    length: 10,
+    outsideWallArea: 0,
+    insideWallArea: 0,
+    ceilingArea: 0
+  },
+  materials: { lumber: { boards: 0, posts: 0 }, plywood: 0, drywall: 0 },
+  waste: { lumber: { boards: 0, posts: 0 }, plywood: 0, drywall: 0 },
+  purchase: { lumber: { boards: 0, posts: 0 }, plywood: 0, drywall: 0 }
+}
 ```
 
 ## getHouseMaterials( name:string )
@@ -33,6 +45,19 @@ node dist/index get-house-materials -n Test
 ```
 
 Our calcHouseMaterials Function will return:
-```
-Name: Test
+<!-- This will be terminal output not javascript, but javascript increases readability in readme -->
+```javascript
+{
+  name: 'Test',
+  house: {
+    width: 0,
+    length: 0,
+    outsideWallArea: 0,
+    insideWallArea: 0,
+    ceilingArea: 0
+  },
+  materials: { lumber: { boards: 0, posts: 0 }, plywood: 0, drywall: 0 },
+  waste: { lumber: { boards: 0, posts: 0 }, plywood: 0, drywall: 0 },
+  purchase: { lumber: { boards: 0, posts: 0 }, plywood: 0, drywall: 0 }
+}
 ```
