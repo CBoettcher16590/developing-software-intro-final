@@ -106,6 +106,38 @@ export function getHouseMaterials(name: string): IHouseOutput {
     };
 }
 
+export function calcWallLumber(inches: number) {
+    const plates = getPlates(inches);
+    const studs = getStuds(inches);
+    //getRequiredBeams only checks to see if we need EXTRA posts so under 20' we will expect a 0;
+    const posts = getRequiredBeams(inches);
+
+    return {
+        plates: plates,
+        studs: studs,
+        posts: posts,
+    };
+}
+
+export function calcDrywall(width: number, length: number): number {
+    //Drywall is 4*8ft... Walls are 8' high, we can place drywall vertically.
+    const drywallWidth = 48; //Gives us width in inches
+    const drywallArea = 4608;
+    const ceilingArea:number = width * length; 
+    //Use Math.ceil because we cant buy partial drywall sheets
+    //We are rounding at the end to minimize waste
+    const drywallSheetsWidth: number = Math.ceil((width / drywallWidth) * 2);
+    const drywallSheetsLength: number = Math.ceil((length / drywallWidth) * 2);
+    const drywallSheetsCeiling:number = Math.ceil(ceilingArea / drywallArea)
+
+    const drywallSheets = drywallSheetsWidth + drywallSheetsLength + drywallSheetsCeiling;
+
+
+
+
+    return drywallSheets;
+}
+
 //This function will check to see if we need to add an extra beam(a wall over 20ft needs an extra beam)
 function getWallLengthOverMinimumRequiredBeforeBeam(inches: number): number {
     return Math.max(inches - BEAMS_REQUIRED_EVERY_INCHES, 0);
@@ -146,17 +178,4 @@ function getRequiredBeams(inches: number) {
     );
 
     return requiredBeams;
-}
-
-export function calcWallLumber(inches: number) {
-    const plates = getPlates(inches);
-    const studs = getStuds(inches);
-    //getRequiredBeams only checks to see if we need EXTRA posts so under 20' we will expect a 0;
-    const posts = getRequiredBeams(inches);
-
-    return {
-        plates: plates,
-        studs: studs,
-        posts: posts,
-    };
 }

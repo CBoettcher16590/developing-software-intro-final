@@ -4,13 +4,13 @@ This respository is intended for the use of Focus College Students enrolled in t
 
 ---
 # Software Development Final Assignment
-### Version 1.1.4
+### Version 1.1.5
 
 # How to use Yargs Commands
 
 ## CalcHouseMaterials
 
-The `calc-house-materials` command takes four parameters to work properly: `length`, `width`, `isFeet`, and `name`. In this version of the project the command will only output the parameters entered to the command line.
+The `calc-house-materials` command takes four parameters to work properly: `length`, `width`, `isFeet`, and `name`.
 
 ### CalcHouseMaterials Parameters:
 * The `length` of the house (preceeded by the `-l` flag)
@@ -26,7 +26,7 @@ npm run dist/index calc-house-materials -l 10 -w 16 --isFeet true -n TestHouse
 
 ## GetHouseMaterials
 
-The `get-house-materials` command takes only one parameter: `name`. In this version of the project the command will only output the parameter that was entered to the command line.
+The `get-house-materials` command takes only one parameter: `name`. 
 
 ### CalcHouseMaterials Parameters:
 * The `name` of the house (preceeded by the `-n` flag)
@@ -124,12 +124,12 @@ npm run build:dev
 ```
 ## Calculator Information
 
-The calculator in this version(1.1.3) has two functions: `calcHouseMaterials`, `getHouseMaterials`, and `calcWallLumber`.
+The calculator in this version(1.1.3) has two functions: `calcHouseMaterials`, `getHouseMaterials`, `calcWallLumber`, and `calcDrywall`.
 
 * `calcHouseMaterials`: takes the parameters passed in with the `calc-house-materials` command and console.logs the values.
 * `getHouseMaterials`: takes the parameter passed in with the `get-house-materials` command and console.logs the value.
 * `calcWallLumber`: takes a parameter(inches) for any one given wall, and returns the plates, studs, and EXTRA posts needed for the wall.
-
+* `caclDrywall`: takes two parameters(width, length) for the house, and returns the number of drywall sheets needed for the walls, and ceiling. 
 [Read More](./src/calculator/README.md)
  
 ## Developing Instrucions 
