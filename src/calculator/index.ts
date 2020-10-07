@@ -5,7 +5,9 @@ const BEAM_WIDTH = 3.5;
 const BOARD_LENGTH = 8 * 12;
 const STUDS_OFFSET = 16;
 const BEAMS_REQUIRED_EVERY_INCHES = 20 * 12;
-const drywall = {width:48, length:96, area:4608};
+
+const drywall = { width: 48, length: 96, area: 4608 };
+const plywood = { width: 48, length: 96 };
 
 export function calcHouseMaterials(
     name: string,
@@ -121,16 +123,32 @@ export function calcWallLumber(inches: number) {
 
 export function calcDrywall(width: number, length: number): number {
     //Drywall is 4*8ft... Walls are 8' high, we can place drywall vertically.
-    const ceilingArea:number = width * length; 
+    const ceilingArea: number = width * length;
     //Use Math.ceil because we cant buy partial drywall sheets
     //We are rounding at the end to minimize waste
-    const drywallSheetsWidth: number = Math.ceil((width / drywall.width) * 2);
-    const drywallSheetsLength: number = Math.ceil((length / drywall.width) * 2);
-    const drywallSheetsCeiling:number = Math.ceil(ceilingArea / drywall.area)
+    const drywallSheetsInWidth: number = Math.ceil((width / drywall.width) * 2);
+    const drywallSheetsInLength: number = Math.ceil(
+        (length / drywall.width) * 2
+    );
+    const drywallSheetsInCeiling: number = Math.ceil(
+        ceilingArea / drywall.area
+    );
 
-    const drywallSheets = drywallSheetsWidth + drywallSheetsLength + drywallSheetsCeiling;
+    const drywallSheets =
+        drywallSheetsInWidth + drywallSheetsInLength + drywallSheetsInCeiling;
 
     return drywallSheets;
+}
+
+export function calcPlywood(width: number, length: number): number {
+    //Plywood is 4*8ft... Walls are 8' high, we can place plywood vertically.
+    const plywoodSheetsInWidth: number = Math.ceil((width / plywood.width) * 2);
+    const plywoodSheetsInLength: number = Math.ceil(
+        (length / plywood.width) * 2
+    );
+    const plywoodSheetsTotal = plywoodSheetsInWidth + plywoodSheetsInLength;
+
+    return plywoodSheetsTotal;
 }
 
 //This function will check to see if we need to add an extra beam(a wall over 20ft needs an extra beam)

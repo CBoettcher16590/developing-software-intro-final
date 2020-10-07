@@ -4,7 +4,7 @@ This respository is intended for the use of Focus College Students enrolled in t
 
 ---
 # Software Development Final Assignment
-### Version 1.1.5
+### Version 1.1.6
 
 # How to use Yargs Commands
 
@@ -129,7 +129,8 @@ The calculator in this version(1.1.3) has two functions: `calcHouseMaterials`, `
 * `calcHouseMaterials`: takes the parameters passed in with the `calc-house-materials` command and console.logs the values.
 * `getHouseMaterials`: takes the parameter passed in with the `get-house-materials` command and console.logs the value.
 * `calcWallLumber`: takes a parameter(inches) for any one given wall, and returns the plates, studs, and EXTRA posts needed for the wall.
-* `caclDrywall`: takes two parameters(width, length) for the house, and returns the number of drywall sheets needed for the walls, and ceiling. 
+* `calcDrywall`: takes two parameters(width, length) for the house, and returns the number of drywall sheets needed for the interior walls, and ceiling. 
+* `calcPlywood`: takes two parameters(width, length) for the house, and returns the number of plywood sheets needed for the exterior walls. 
 
 [Read More](./src/calculator/README.md)
  
