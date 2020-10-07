@@ -1,7 +1,7 @@
 import { expect } from "chai";
 import "mocha";
 
-import { calcHouseMaterials, getHouseMaterials } from '../src/calculator/index';
+import { calcHouseMaterials, calcWallLumber, getHouseMaterials } from '../src/calculator/index';
 // import { Arguments, Argv } from "yargs";
 
 // These are the argments that I will need to pass in to my tests
@@ -34,3 +34,13 @@ describe("getHouseMaterials Function", () => {
         expect(result.name).to.equal("test");
     });
 });
+
+describe("calcWallLumber Function", () => {
+    it("should return number of plates, studs, and posts", () => {
+        const result = calcWallLumber(96);
+        expect(result.plates).to.equal(3);
+        expect(result.studs).to.equal(7);
+        expect(result.posts).to.equal(0);
+    });
+});
+

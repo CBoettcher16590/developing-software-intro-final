@@ -2,7 +2,7 @@
 [Go Back](../../README.md)
 
 
-In this Version of the project(1.1.3), the `calcHouseMaterials`, and `getHouseMaterials` functions will display their stored infromation in the command line. I have created an interface called `IHouseOutput` that ensures that the output of each of these functions will work for Gerlads purposes. 
+In this Version of the project(1.1.4), the `calcHouseMaterials`, and `getHouseMaterials` functions will display their stored infromation in the command line. I have created an interface called `IHouseOutput` that ensures that the output of each of these functions will work for Gerlads purposes. 
 
 ## calcHouseMaterials( name:string, width:number, length:number, unit:boolean )
 
@@ -60,4 +60,14 @@ Our calcHouseMaterials Function will return:
   waste: { lumber: { boards: 0, posts: 0 }, plywood: 0, drywall: 0 },
   purchase: { lumber: { boards: 0, posts: 0 }, plywood: 0, drywall: 0 }
 }
+```
+
+## calcWallLumber( inches ) Function
+
+The `calcWallLumber` function takes inches as a parameter, and then calculates how manu plates, studs, and EXTRA posts are needed for that specific wall. It is not meant to be called from the terminal as it is a background calculation, but it will be called by the `calcHouseMaterials` function in later versions. 
+
+Output Example:
+
+```javascript
+{ plates: 3, studs: 7, posts: 0 }
 ```
