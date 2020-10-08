@@ -4,7 +4,7 @@ This respository is intended for the use of Focus College Students enrolled in t
 
 ---
 # Software Development Final Assignment
-### Version 1.1.7
+### Version 1.1.8
 
 # How to use Yargs Commands
 
@@ -126,7 +126,7 @@ npm run build:dev
 
 The calculator in this version has six functions: `calcHouseMaterials`, `getHouseMaterials`, `calcWallLumber`, and `calcDrywall`, `calcPlywood`, and `calcMaterials`.
 
-* `calcHouseMaterials`: takes the parameters passed in with the `calc-house-materials` command and console.logs the values.
+* `calcHouseMaterials`: takes the parameters passed in with the `calc-house-materials` command, and used the calcMaterials function to output the results. 
 * `getHouseMaterials`: takes the parameter passed in with the `get-house-materials` command and console.logs the value.
 * `calcWallLumber`: takes a parameter(inches) for any one given wall, and returns the plates, studs, and EXTRA posts needed for the wall.
 * `calcDrywall`: takes two parameters(width, length) for the house, and returns the number of drywall sheets needed for the interior walls, and ceiling. 

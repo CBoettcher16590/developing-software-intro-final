@@ -15,26 +15,32 @@ export function calcHouseMaterials(
     length: number,
     units: boolean
 ): IHouseOutput {
-    //Output as outlined by Gerald in instructions
+    const houseMaterials = calcMaterials(
+        width,
+        length,
+        calcWallLumber,
+        calcDrywall,
+        calcPlywood
+    );
     return {
         name: name,
         house: {
-            width: width,
-            length: length,
-            outsideWallArea: 0,
-            insideWallArea: 0,
-            ceilingArea: 0,
+            width: houseMaterials.house.width,
+            length: houseMaterials.house.length,
+            outsideWallArea: houseMaterials.house.outsideWallArea,
+            insideWallArea: houseMaterials.house.insideWallArea,
+            ceilingArea: houseMaterials.house.ceilingArea,
         },
 
         materials: {
             lumber: {
-                boards: 0,
-                posts: 0,
+                boards: houseMaterials.materials.lumber.boards,
+                posts: houseMaterials.materials.lumber.posts,
             },
 
-            plywood: 0,
+            plywood: houseMaterials.materials.plywood,
 
-            drywall: 0,
+            drywall: houseMaterials.materials.drywall,
         },
 
         waste: {
@@ -172,7 +178,7 @@ export function calcMaterials(
     }
 
     return {
-        name: "placeholder",
+        name: "",
         house: {
             width: width,
             length: length,

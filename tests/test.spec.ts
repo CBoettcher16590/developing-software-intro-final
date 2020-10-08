@@ -18,11 +18,23 @@ import { calcDrywall, calcHouseMaterials, calcWallLumber, getHouseMaterials, cal
 
 //Test to make sure calcHouseMaterials is returning what I want
 describe("calcHouseMaterials Function", () => {
-    it("should return House Materials", () => {
-        const result = calcHouseMaterials("test", 10, 10, true);
+    it("should return House Properties", () => {
+        //this portion tests the house properties
+        const result = calcHouseMaterials("test", 120, 120, false);
         expect(result.name).to.equal("test");
-        expect(result.house.length).to.equal(10);
-        expect(result.house.width).to.equal(10);
+        expect(result.house.length).to.equal(120);
+        expect(result.house.width).to.equal(120);
+        expect(result.house.outsideWallArea).to.equal(57600);
+        expect(result.house.ceilingArea).to.equal(14400);
+        expect(result.house.insideWallArea).to.equal(57572);
+    });
+    //this portion tests the houses materials
+    it("should return House Materials", () => {
+        const result = calcHouseMaterials("test", 120, 120, false);
+        expect(result.materials.drywall).to.equal(14);
+        expect(result.materials.plywood).to.equal(10);
+        expect(result.materials.lumber.boards).to.equal(32);
+        expect(result.materials.lumber.posts).to.equal(4);
     });
 });
 
@@ -63,6 +75,7 @@ describe("calcPlywood Function", () => {
 
 //Testing to make sure calcPlywood is returning what I want
 describe("calcMateruals Function", () => {
+
     it("should return the materials from calcMaterials function", () => {
         const result = calcMaterials(96, 96, calcWallLumber, calcDrywall, calcPlywood);
         expect(result.materials.drywall).to.equal(10);
