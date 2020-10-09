@@ -2,7 +2,7 @@
 [Go Back](../../README.md)
 
 
-In this Version of the project (`1.1.10`), the `calcHouseMaterials`, and `getHouseMaterials` functions will display their stored infromation in the command line. I have created an interface called `IHouseOutput` that ensures that the output of each of these functions will work for Gerlads purposes. 
+In this Version of the project (`1.1.11`), the `calcHouseMaterials`, and `getHouseMaterials` functions will display their stored infromation in the command line. I have created an interface called `IHouseOutput` that ensures that the output of each of these functions will work for Gerlads purposes. 
 
 ## calcHouseMaterials( name:string, width:number, length:number, unit:boolean )
 
@@ -12,7 +12,7 @@ The `calcHouseMaterials` function takes four parameters: `name`, `length`, `widt
 
 I have also added the `houseMaterials` function inside the body of the `calcHouseMaterials` function. This will allow us to fill enter more data in our IHouseOutput. 
 
-*New to Version 1.1.9*
+* Version 1.1.9 change*
 
 I have added the `calcWaste` function inside the `calcHouseMaterials` function. This will allow us to add the waste output in out return statement. 
 

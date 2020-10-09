@@ -4,7 +4,7 @@ This respository is intended for the use of Focus College Students enrolled in t
 
 ---
 # Software Development Final Assignment
-### Version 1.1.10
+### Version 1.1.11
 
 # How to use Yargs Commands
 
@@ -26,8 +26,7 @@ npm run dist/index calc-house-materials -l 10 -w 16 --isFeet true -n TestHouse
 
 ## GetHouseMaterials
 
-The `get-house-materials` command takes only one parameter: `name`. 
-
+The `get-house-materials` command takes only one parameter: `name`. When it is run it will check to see if there is a house with the name that matches, or will throw an error if no house matches that name. 
 ### CalcHouseMaterials Parameters:
 * The `name` of the house (preceeded by the `-n` flag)
 

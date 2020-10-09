@@ -1,5 +1,8 @@
 import { Arguments, Argv } from "yargs";
 import { calcHouseMaterials } from "../calculator/index";
+import IHouseOutput from "../calculator/interfaces";
+import { Houses } from "../house/houses";
+const fs = require('fs');
 
 export function calcHouseMaterialsCommand(yargs: Argv): void {
     yargs.command(
@@ -45,15 +48,26 @@ export function calcHouseMaterialsCommand(yargs: Argv): void {
                 n: string;
             }>
         ) {
+            
             //Here we can insert our code for the command function
-            console.log(
-                calcHouseMaterials(
+            
+            const house:IHouseOutput = calcHouseMaterials(
                     args.name,
                     args.width,
                     args.length,
                     args.isFeet
                 )
-            );
+
+        
+                //Here we are able to save the house that we have entered
+                Houses.save(house);
+                //Then we print a log that confirms the save;
+                console.log("Saved: " + house.name)
+                //console.log the house
+                console.log(house);
+            
+                    
+
         }
     );
 }

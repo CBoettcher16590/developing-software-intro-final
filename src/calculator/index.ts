@@ -1,7 +1,6 @@
 import IHouseOutput from "../calculator/interfaces";
 
 
-
 //constants declaired
 const BEAM_WIDTH = 3.5;
 const BOARD_LENGTH = 8 * 12;

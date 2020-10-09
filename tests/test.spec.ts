@@ -1,6 +1,6 @@
 import { expect } from "chai";
 import "mocha";
-import IHouseOutput from '../src/calculator/interfaces';
+import {getHouseMaterialsCommand} from '../src/commands/getHouseMaterials';
 import { calcDrywall, calcHouseMaterials, calcWallLumber, getHouseMaterials, calcPlywood, calcMaterials, calcWaste, calcPurchase } from '../src/calculator/index';
 // import { Arguments, Argv } from "yargs";
 

@@ -1,5 +1,5 @@
 import { Arguments, Argv } from "yargs";
-import { getHouseMaterials } from "../calculator/index";
+const fs = require('fs');
 
 export function getHouseMaterialsCommand(yargs: Argv): void {
     yargs.command(
@@ -24,9 +24,10 @@ export function getHouseMaterialsCommand(yargs: Argv): void {
                 n: string;
             }>
         ) {
-            //Here we can insert our code for the command function
-
-            console.log(getHouseMaterials(args.name));
+            //Here we are able to look up the house, and we use the args name to make sure we are getting the correct house. 
+            let jsonData = require(`../../dist/data/${args.name}.json`);
+            console.log(jsonData);
+           
         }
     );
 }
