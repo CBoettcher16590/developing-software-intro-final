@@ -28,10 +28,11 @@ export function calcHouseMaterials(
     //Here we will throw an error is the walls are less than 4 feet
     if(width < 48 || length < 48){
         throw new Error("Walls must be greater than 4 Feet")
+        
     }
     //Here we will throw an error is the walls are more than 60 feet
 
-    if(width > 720 || length < 720){
+    if(width > 720 || length > 720){
         throw new Error("Walls must be Less than 60 Feet")
     }
 

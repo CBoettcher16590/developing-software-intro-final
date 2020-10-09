@@ -2,7 +2,7 @@ import { Arguments, Argv } from "yargs";
 import { calcHouseMaterials } from "../calculator/index";
 import IHouseOutput from "../calculator/interfaces";
 import { Houses } from "../house/houses";
-const fs = require('fs');
+
 
 export function calcHouseMaterialsCommand(yargs: Argv): void {
     yargs.command(
@@ -27,7 +27,7 @@ export function calcHouseMaterialsCommand(yargs: Argv): void {
             //note: isFeet has no alias and we must use "--isFeet"
             isFeet: {
                 type: "boolean",
-                description: "The width of the house",
+                description: "The unit of measurement for the house - true:feet, false:inches",
             },
             name: {
                 type: "string",
@@ -58,7 +58,7 @@ export function calcHouseMaterialsCommand(yargs: Argv): void {
                     args.isFeet
                 )
 
-        
+                
                 //Here we are able to save the house that we have entered
                 Houses.save(house);
                 //Then we print a log that confirms the save;

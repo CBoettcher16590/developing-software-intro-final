@@ -6,9 +6,9 @@ This respository is intended for the use of Focus College Students enrolled in t
 # Software Development Final Assignment
 ### Version 1.2.0
 
-# How to use Yargs Commands
+# How to Use Application
 
-## CalcHouseMaterials
+## calc-house-materials
 
 The `calc-house-materials` command takes four parameters to work properly: `length`, `width`, `isFeet`, and `name`.
 
@@ -24,7 +24,7 @@ Example:
 npm run dist/index calc-house-materials -l 10 -w 16 --isFeet true -n TestHouse 
 ```
 
-## GetHouseMaterials
+## get-house-materials
 
 The `get-house-materials` command takes only one parameter: `name`. When it is run it will check to see if there is a house with the name that matches, or will throw an error if no house matches that name. 
 ### CalcHouseMaterials Parameters:
@@ -35,6 +35,8 @@ Example:
 ```
 npm run dist/index get-house-materials -n TestHouse 
 ```
+
+
 
 # How to Use the package.json Scripts
 
@@ -122,6 +124,7 @@ npm run build
 npm run build:dev
 ```
 ## Calculator Information
+-------------------------
 
 The calculator in this version has six functions: `calcHouseMaterials`, `getHouseMaterials`, `calcWallLumber`, and `calcDrywall`, `calcPlywood`, and `calcMaterials`.
 

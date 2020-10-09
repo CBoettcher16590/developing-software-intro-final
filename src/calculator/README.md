@@ -12,7 +12,7 @@ The `calcHouseMaterials` function takes four parameters: `name`, `length`, `widt
 
 I have also added the `houseMaterials` function inside the body of the `calcHouseMaterials` function. This will allow us to fill enter more data in our IHouseOutput. 
 
-* Version 1.1.9 change*
+*Version 1.1.9 change*
 
 I have added the `calcWaste` function inside the `calcHouseMaterials` function. This will allow us to add the waste output in out return statement. 
 
