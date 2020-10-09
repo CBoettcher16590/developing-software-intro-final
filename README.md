@@ -4,7 +4,7 @@ This respository is intended for the use of Focus College Students enrolled in t
 
 ---
 # Software Development Final Assignment
-### Version 1.1.11
+### Version 1.2.0
 
 # How to use Yargs Commands
 

@@ -2,7 +2,7 @@
 [Go Back](../../README.md)
 
 
-In this Version of the project (`1.1.11`), the `calcHouseMaterials`, and `getHouseMaterials` functions will display their stored infromation in the command line. I have created an interface called `IHouseOutput` that ensures that the output of each of these functions will work for Gerlads purposes. 
+In this Version of the project (`1.2.0`), the `calcHouseMaterials`, and `getHouseMaterials` functions will display their stored infromation in the command line. I have created an interface called `IHouseOutput` that ensures that the output of each of these functions will work for Gerlads purposes. 
 
 ## calcHouseMaterials( name:string, width:number, length:number, unit:boolean )
 
