@@ -4,7 +4,7 @@ This respository is intended for the use of Focus College Students enrolled in t
 
 ---
 # Software Development Final Assignment
-### Version 1.1.9
+### Version 1.1.10
 
 # How to use Yargs Commands
 
@@ -133,6 +133,7 @@ The calculator in this version has six functions: `calcHouseMaterials`, `getHous
 * `calcPlywood`: takes two parameters(width, length) for the house, and returns the number of plywood sheets needed for the exterior walls.
 * `calcMaterials`: takes five parameters(width, length, calcWallLumber, CalcDrywall, CalcPlywood). It will return an object the matches the IHouseOutput interface.  
 * `calcWaste`: takes only one parameter, a value from within the calcMaterials function. It will return the value of how much extra is needed to account for waste.   
+* `calcPurchase`: takes only one parameter, a value from within the calcMaterials function. It will return the value of how much total materials including waste is needed for a project. 
 
 [Read More](./src/calculator/README.md)
  

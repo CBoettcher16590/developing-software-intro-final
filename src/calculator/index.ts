@@ -46,7 +46,8 @@ export function calcHouseMaterials(
             drywall: houseMaterials.materials.drywall,
         },
 
-        //Here we are using houseMaterials, which stores the returned value for calcMaterials
+        // Here we are using houseMaterials, which stores the returned value for calcMaterials to return the 
+        // values for the extra needed to account for waste.
         waste: {
             lumber: {
                 boards: calcWaste(houseMaterials.materials.lumber.boards),
@@ -57,16 +58,17 @@ export function calcHouseMaterials(
 
             drywall: calcWaste(houseMaterials.materials.drywall),
         },
-
+    // Here we are using houseMaterials, which stores the returned value for calcMaterials to return the 
+    // values for the purchase materials
         purchase: {
             lumber: {
-                boards: 0,
-                posts: 0,
+                boards: calcPurchase(houseMaterials.materials.lumber.boards),
+                posts: calcPurchase(houseMaterials.materials.lumber.posts),
             },
 
-            plywood: 0,
+            plywood: calcPurchase(houseMaterials.materials.plywood),
 
-            drywall: 0,
+            drywall: calcPurchase(houseMaterials.materials.drywall),
         },
     };
 }
@@ -232,6 +234,12 @@ export function calcMaterials(
             drywall: 0,
         },
     };
+}
+
+export function calcPurchase(items:number){
+    const waste = Math.ceil(items * WASTE_MULTIPLIER); 
+    const purchaseAmmount = waste + items;
+    return purchaseAmmount;
 }
 
 //This function will check to see if we need to add an extra beam(a wall over 20ft needs an extra beam)

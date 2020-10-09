@@ -1,7 +1,7 @@
 import { expect } from "chai";
 import "mocha";
 import IHouseOutput from '../src/calculator/interfaces';
-import { calcDrywall, calcHouseMaterials, calcWallLumber, getHouseMaterials, calcPlywood, calcMaterials, calcWaste } from '../src/calculator/index';
+import { calcDrywall, calcHouseMaterials, calcWallLumber, getHouseMaterials, calcPlywood, calcMaterials, calcWaste, calcPurchase } from '../src/calculator/index';
 // import { Arguments, Argv } from "yargs";
 
 // These are the argments that I will need to pass in to my tests
@@ -43,6 +43,14 @@ describe("calcHouseMaterials Function", () => {
         expect(result.waste.plywood).to.equal(1);
         expect(result.waste.lumber.boards).to.equal(4);
         expect(result.waste.lumber.posts).to.equal(1);
+    });
+     //this portion tests the houses Purchase amounts 
+     it("should return Purchase Materials", () => {
+        const result = calcHouseMaterials("test", 120, 120, false);
+        expect(result.purchase.drywall).to.equal(16);
+        expect(result.purchase.plywood).to.equal(11);
+        expect(result.purchase.lumber.boards).to.equal(36);
+        expect(result.purchase.lumber.posts).to.equal(5);
     });
 });
 
@@ -103,7 +111,7 @@ describe("calcMateruals Function", () => {
 
 //Testing to make sure calcWaste is returning what I want
 describe("calcWaste Function", () => {
-    it("should return the waste properties shows in the IHouseOutput", () => {
+    it("should return the waste properties shown in the IHouseOutput", () => {
         //assigning calcMaterials value to constant variable
         const calcMaterialsResult = calcMaterials(96,96,calcWallLumber,calcDrywall, calcPlywood)
         
@@ -118,7 +126,25 @@ describe("calcWaste Function", () => {
         expect(posts).to.equal(1);
         expect(drywall).to.equal(1);
         expect(plywood).to.equal(1);
+    });
+});
 
+//Testing to make sure calcWaste is returning what I want
+describe("calcPurchase Function", () => {
+    it("should return the Purchase properties shown in the IHouseOutput", () => {
+        //assigning calcMaterials value to constant variable
+        const calcMaterialsResult = calcMaterials(120,120,calcWallLumber,calcDrywall, calcPlywood)
+        
+        //assigning values to each of the Purchase properties
+        const boards = calcPurchase(calcMaterialsResult.materials.lumber.boards);
+        const posts = calcPurchase(calcMaterialsResult.materials.lumber.posts);
+        const drywall = calcPurchase(calcMaterialsResult.materials.drywall);
+        const plywood = calcPurchase(calcMaterialsResult.materials.plywood);
 
+        //checking calculation 
+        expect(boards).to.equal(36);
+        expect(posts).to.equal(5);
+        expect(drywall).to.equal(16);
+        expect(plywood).to.equal(11);
     });
 });

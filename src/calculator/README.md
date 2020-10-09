@@ -2,7 +2,7 @@
 [Go Back](../../README.md)
 
 
-In this Version of the project (`1.1.8`), the `calcHouseMaterials`, and `getHouseMaterials` functions will display their stored infromation in the command line. I have created an interface called `IHouseOutput` that ensures that the output of each of these functions will work for Gerlads purposes. 
+In this Version of the project (`1.1.10`), the `calcHouseMaterials`, and `getHouseMaterials` functions will display their stored infromation in the command line. I have created an interface called `IHouseOutput` that ensures that the output of each of these functions will work for Gerlads purposes. 
 
 ## calcHouseMaterials( name:string, width:number, length:number, unit:boolean )
 
@@ -150,4 +150,31 @@ Output:
   materials: { lumber: { boards: 32, posts: 4 }, plywood: 10, drywall: 14 },
   waste: { lumber: { boards: 4, posts: 1 }, plywood: 1, drywall: 2 },
   purchase: { lumber: { boards: 0, posts: 0 }, plywood: 0, drywall: 0 }
+```
+
+## calcPurchase( items ) Function
+
+The `calcPurchase` function takes one only one parameter; In this case the value of calcMaterials gets passed in, and we can find the total ammount of materials we need to purchase including the waste. 
+
+
+This function is used within the calcHouseMaterials function, so to demonstrate the ouput of calcWaste, we will need to type in: 
+
+```
+node dist/index.js calcHouseMaterials(120, 120, calcWallLumber, calcDrywall, calcPlywood)
+```
+
+Output:
+
+```javascript
+  name: 'Test',
+  house: {
+    width: 120,
+    length: 120,
+    outsideWallArea: 57600,
+    insideWallArea: 57572,
+    ceilingArea: 14400
+  },
+  materials: { lumber: { boards: 32, posts: 4 }, plywood: 10, drywall: 14 },
+  waste: { lumber: { boards: 4, posts: 1 }, plywood: 1, drywall: 2 },
+  purchase: { lumber: { boards: 36, posts: 5 }, plywood: 11, drywall: 14 }
 ```
