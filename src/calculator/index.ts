@@ -17,6 +17,12 @@ export function calcHouseMaterials(
     length: number,
     units: boolean
 ): IHouseOutput {
+
+    if(units === true){
+        width = width * 12;
+        length = length * 12;
+    } 
+
     const houseMaterials = calcMaterials(
         width,
         length,
