@@ -1,13 +1,16 @@
 import IHouseOutput from "../calculator/interfaces";
 
+
+
 //constants declaired
 const BEAM_WIDTH = 3.5;
 const BOARD_LENGTH = 8 * 12;
 const STUDS_OFFSET = 16;
 const BEAMS_REQUIRED_EVERY_INCHES = 20 * 12;
-
+const WASTE_MULTIPLIER = .1;
 const drywall = { width: 48, length: 96, area: 4608 };
 const plywood = { width: 48, length: 96 };
+
 
 export function calcHouseMaterials(
     name: string,
@@ -43,15 +46,16 @@ export function calcHouseMaterials(
             drywall: houseMaterials.materials.drywall,
         },
 
+        //Here we are using houseMaterials, which stores the returned value for calcMaterials
         waste: {
             lumber: {
-                boards: 0,
-                posts: 0,
+                boards: calcWaste(houseMaterials.materials.lumber.boards),
+                posts: calcWaste(houseMaterials.materials.lumber.posts),
             },
 
-            plywood: 0,
+            plywood: calcWaste(houseMaterials.materials.plywood),
 
-            drywall: 0,
+            drywall: calcWaste(houseMaterials.materials.drywall),
         },
 
         purchase: {
@@ -114,6 +118,13 @@ export function getHouseMaterials(name: string): IHouseOutput {
     };
 }
 
+//will take a number as a parameter(we will be using it so it takes the result of calcMaterials)
+ export function calcWaste(items:number) {
+    const waste = Math.ceil(items * WASTE_MULTIPLIER);
+   
+  return waste;
+}
+
 export function calcWallLumber(inches: number) {
     const plates = getPlates(inches);
     const studs = getStuds(inches);
@@ -171,6 +182,7 @@ export function calcMaterials(
     let totalPosts = lumberInLength.posts + lumberInWidth.posts;
     const drywall = calcDrywall(width, length);
     const plywood = calcPlywood(width, length);
+   
 
     //Checks to see if there are EXTRA posts needed, if not, then it adds the 4 corner posts
     if (totalPosts === 0) {

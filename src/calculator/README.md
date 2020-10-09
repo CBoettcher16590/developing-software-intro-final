@@ -8,9 +8,14 @@ In this Version of the project (`1.1.8`), the `calcHouseMaterials`, and `getHous
 
 The `calcHouseMaterials` function takes four parameters: `name`, `length`, `width`, and `units`. 
 
-*New to Version 1.1.8*
+*Version 1.1.8 change*
 
 I have also added the `houseMaterials` function inside the body of the `calcHouseMaterials` function. This will allow us to fill enter more data in our IHouseOutput. 
+
+*New to Version 1.1.9*
+
+I have added the `calcWaste` function inside the `calcHouseMaterials` function. This will allow us to add the waste output in out return statement. 
+
 
 
 Example:
@@ -33,7 +38,7 @@ Our calcHouseMaterials Function will return:
     ceilingArea: 14400
   },
   materials: { lumber: { boards: 32, posts: 4 }, plywood: 10, drywall: 14 },
-  waste: { lumber: { boards: 0, posts: 0 }, plywood: 0, drywall: 0 },
+  waste: { lumber: { boards: 4, posts: 1 }, plywood: 1, drywall: 2 },
   purchase: { lumber: { boards: 0, posts: 0 }, plywood: 0, drywall: 0 }
 }
 ```
@@ -96,7 +101,7 @@ Output Example for a House 96inches x 96inches:
 ```
 
 ## calcMaterials( width:number, length:number, calcWallLumber, calcDrywall, caclPlywood ) Function
-<a name="calcmaterials"></a>
+
 The `calcMaterials` function takes five parameters(width, length, calcWallLumber, CalcDrywall, CalcPlywood), and will return an object the matches the IHouseOutput interface.
 
 This function is used within the calcHouseMaterials function, so to demonstrate the ouput of calcMaterials, we will need to type in: 
@@ -118,5 +123,31 @@ Output:
   },
   materials: { lumber: { boards: 32, posts: 4 }, plywood: 10, drywall: 14 },
   waste: { lumber: { boards: 0, posts: 0 }, plywood: 0, drywall: 0 },
+  purchase: { lumber: { boards: 0, posts: 0 }, plywood: 0, drywall: 0 }
+```
+
+## calcWaste( items ) Function
+
+The `calcWaste` function takes one only one parameter; In this case the value of calcMaterials gets passed in, and we can find how much waste we need to purchase. 
+
+This function is used within the calcHouseMaterials function, so to demonstrate the ouput of calcWaste, we will need to type in: 
+
+```
+node dist/index.js calcHouseMaterials(120, 120, calcWallLumber, calcDrywall, calcPlywood)
+```
+
+Output:
+
+```javascript
+  name: 'Test',
+  house: {
+    width: 120,
+    length: 120,
+    outsideWallArea: 57600,
+    insideWallArea: 57572,
+    ceilingArea: 14400
+  },
+  materials: { lumber: { boards: 32, posts: 4 }, plywood: 10, drywall: 14 },
+  waste: { lumber: { boards: 4, posts: 1 }, plywood: 1, drywall: 2 },
   purchase: { lumber: { boards: 0, posts: 0 }, plywood: 0, drywall: 0 }
 ```

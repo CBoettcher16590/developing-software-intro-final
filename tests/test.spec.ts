@@ -1,7 +1,7 @@
 import { expect } from "chai";
 import "mocha";
 import IHouseOutput from '../src/calculator/interfaces';
-import { calcDrywall, calcHouseMaterials, calcWallLumber, getHouseMaterials, calcPlywood, calcMaterials } from '../src/calculator/index';
+import { calcDrywall, calcHouseMaterials, calcWallLumber, getHouseMaterials, calcPlywood, calcMaterials, calcWaste } from '../src/calculator/index';
 // import { Arguments, Argv } from "yargs";
 
 // These are the argments that I will need to pass in to my tests
@@ -35,6 +35,14 @@ describe("calcHouseMaterials Function", () => {
         expect(result.materials.plywood).to.equal(10);
         expect(result.materials.lumber.boards).to.equal(32);
         expect(result.materials.lumber.posts).to.equal(4);
+    });
+    //this portion tests the houses waste
+    it("should return Waste Materials", () => {
+        const result = calcHouseMaterials("test", 120, 120, false);
+        expect(result.waste.drywall).to.equal(2);
+        expect(result.waste.plywood).to.equal(1);
+        expect(result.waste.lumber.boards).to.equal(4);
+        expect(result.waste.lumber.posts).to.equal(1);
     });
 });
 
@@ -90,5 +98,27 @@ describe("calcMateruals Function", () => {
         expect(result.house.outsideWallArea).to.equal(36864);
         expect(result.house.insideWallArea).to.equal(36836);
         expect(result.house.ceilingArea).to.equal(9216);
+    });
+});
+
+//Testing to make sure calcWaste is returning what I want
+describe("calcWaste Function", () => {
+    it("should return the waste properties shows in the IHouseOutput", () => {
+        //assigning calcMaterials value to constant variable
+        const calcMaterialsResult = calcMaterials(96,96,calcWallLumber,calcDrywall, calcPlywood)
+        
+        //assigning values to each of the waste properties
+        const boards = calcWaste(calcMaterialsResult.materials.lumber.boards);
+        const posts = calcWaste(calcMaterialsResult.materials.lumber.posts);
+        const drywall = calcWaste(calcMaterialsResult.materials.drywall);
+        const plywood = calcWaste(calcMaterialsResult.materials.plywood);
+
+        //checking calculation 
+        expect(boards).to.equal(3);
+        expect(posts).to.equal(1);
+        expect(drywall).to.equal(1);
+        expect(plywood).to.equal(1);
+
+
     });
 });
