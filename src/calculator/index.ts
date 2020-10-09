@@ -23,6 +23,16 @@ export function calcHouseMaterials(
         length = length * 12;
     } 
 
+    if(width < 48 || length < 48){
+        throw new Error("Walls must be greater than 4 Feet")
+    }
+
+    if(width > 720 || length < 720){
+        throw new Error("Walls must be Less than 60 Feet")
+    }
+
+
+
     const houseMaterials = calcMaterials(
         width,
         length,
