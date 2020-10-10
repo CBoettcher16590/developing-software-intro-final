@@ -26,12 +26,8 @@ npm run dist/index calc-house-materials -l 10 -w 16 --isFeet true -n TestHouse
 
 ## get-house-materials
 
-<<<<<<< HEAD
-### GetHouseMaterials Parameters:
-=======
 The `get-house-materials` command takes only one parameter: `name`. When it is run it will check to see if there is a house with the name that matches, or will throw an error if no house matches that name. 
 ### CalcHouseMaterials Parameters:
->>>>>>> feature/calculator
 * The `name` of the house (preceeded by the `-n` flag)
 
 Example: 
