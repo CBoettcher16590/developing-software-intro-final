@@ -1,6 +1,10 @@
 import { Arguments, Argv } from "yargs";
+import { calcHouseMaterials } from "../calculator/index";
+import IHouseOutput from "../calculator/interfaces";
+import { Houses } from "../house/houses";
 
-export function calcHouseMaterials(yargs: Argv): void {
+
+export function calcHouseMaterialsCommand(yargs: Argv): void {
     yargs.command(
         // Creates a new yargs command
         "calc-house-materials",
@@ -20,10 +24,10 @@ export function calcHouseMaterials(yargs: Argv): void {
                 alias: "l",
                 description: "The length of the house",
             },
-            //note: isFeet has no alias and we must use "isFeet"
+            //note: isFeet has no alias and we must use "--isFeet"
             isFeet: {
                 type: "boolean",
-                description: "The width of the house",
+                description: "The unit of measurement for the house - true:feet, false:inches",
             },
             name: {
                 type: "string",
@@ -32,7 +36,7 @@ export function calcHouseMaterials(yargs: Argv): void {
                     "The name given to the house. Used to save and lookup houses",
             },
         },
-
+        //Arguments passed into the function
         function (
             args: Arguments<{
                 width: number;
@@ -44,19 +48,26 @@ export function calcHouseMaterials(yargs: Argv): void {
                 n: string;
             }>
         ) {
+            
             //Here we can insert our code for the command function
+            
+            const house:IHouseOutput = calcHouseMaterials(
+                    args.name,
+                    args.width,
+                    args.length,
+                    args.isFeet
+                )
 
-            console.log("The parameters passed in are as follows");
-            console.log(
-                "Length: " +
-                    args.length +
-                    ", Width: " +
-                    args.width +
-                    ", IsFeet: " +
-                    args.isFeet +
-                    ", Name: " +
-                    args.name
-            );
+                
+                //Here we are able to save the house that we have entered
+                Houses.save(house);
+                //Then we print a log that confirms the save;
+                console.log("Saved: " + house.name)
+                //console.log the house
+                console.log(house);
+            
+                    
+
         }
     );
 }

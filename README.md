@@ -4,13 +4,13 @@ This respository is intended for the use of Focus College Students enrolled in t
 
 ---
 # Software Development Final Assignment
-### Version 1.1.0
+### Version 1.2.0
 
-# How to use Yargs Commands
+# How to Use Application
 
-## CalcHouseMaterials
+## calc-house-materials
 
-The `calc-house-materials` command takes four parameters to work properly: `length`, `width`, `isFeet`, and `name`. In this version of the project the command will only output the parameters entered to the command line.
+The `calc-house-materials` command takes four parameters to work properly: `length`, `width`, `isFeet`, and `name`.
 
 ### CalcHouseMaterials Parameters:
 * The `length` of the house (preceeded by the `-l` flag)
@@ -24,11 +24,14 @@ Example:
 npm run dist/index calc-house-materials -l 10 -w 16 --isFeet true -n TestHouse 
 ```
 
-## GetHouseMaterials
+## get-house-materials
 
-The `get-house-materials` command takes only one parameter: `name`. In this version of the project the command will only output the parameter that was entered to the command line.
-
+<<<<<<< HEAD
 ### GetHouseMaterials Parameters:
+=======
+The `get-house-materials` command takes only one parameter: `name`. When it is run it will check to see if there is a house with the name that matches, or will throw an error if no house matches that name. 
+### CalcHouseMaterials Parameters:
+>>>>>>> feature/calculator
 * The `name` of the house (preceeded by the `-n` flag)
 
 Example: 
@@ -36,6 +39,8 @@ Example:
 ```
 npm run dist/index get-house-materials -n TestHouse 
 ```
+
+
 
 # How to Use the package.json Scripts
 
@@ -122,7 +127,22 @@ npm run build
 ```
 npm run build:dev
 ```
+## Calculator Information
+-------------------------
 
+The calculator in this version has six functions: `calcHouseMaterials`, `getHouseMaterials`, `calcWallLumber`, and `calcDrywall`, `calcPlywood`, and `calcMaterials`.
+
+* `calcHouseMaterials`: takes the parameters passed in with the `calc-house-materials` command, and used the calcMaterials function to output the results. 
+* `getHouseMaterials`: takes the parameter passed in with the `get-house-materials` command and console.logs the value.
+* `calcWallLumber`: takes a parameter(inches) for any one given wall, and returns the plates, studs, and EXTRA posts needed for the wall.
+* `calcDrywall`: takes two parameters(width, length) for the house, and returns the number of drywall sheets needed for the interior walls, and ceiling. 
+* `calcPlywood`: takes two parameters(width, length) for the house, and returns the number of plywood sheets needed for the exterior walls.
+* `calcMaterials`: takes five parameters(width, length, calcWallLumber, CalcDrywall, CalcPlywood). It will return an object the matches the IHouseOutput interface.  
+* `calcWaste`: takes only one parameter, a value from within the calcMaterials function. It will return the value of how much extra is needed to account for waste.   
+* `calcPurchase`: takes only one parameter, a value from within the calcMaterials function. It will return the value of how much total materials including waste is needed for a project. 
+
+[Read More](./src/calculator/README.md)
+ 
 ## Developing Instrucions 
 -------------------------
 Download this application from Github:

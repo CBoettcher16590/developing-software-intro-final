@@ -1,6 +1,7 @@
 import { Arguments, Argv } from "yargs";
+const fs = require('fs');
 
-export function getHouseMaterials(yargs: Argv): void {
+export function getHouseMaterialsCommand(yargs: Argv): void {
     yargs.command(
         // Creates a new yargs command
         "get-house-materials",
@@ -23,9 +24,10 @@ export function getHouseMaterials(yargs: Argv): void {
                 n: string;
             }>
         ) {
-            //Here we can insert our code for the command function
-
-            console.log("The parameter passed in is Name: " + args.name);
+            //Here we are able to look up the house, and we use the args name to make sure we are getting the correct house. 
+            let jsonData = require(`../../dist/data/${args.name}.json`);
+            console.log(jsonData);
+           
         }
     );
 }
