@@ -1,12 +1,7 @@
 import yargs = require('yargs');
-<<<<<<< HEAD
-import { calcHouseMaterials } from './commands/calcHouseMaterials'
-import { getHouseMaterials } from './commands/getHouseMaterials';
-=======
 import { calcHouseMaterialsCommand } from './commands/calcHouseMaterials';
 import { getHouseMaterialsCommand } from './commands/getHouseMaterials';
 import { calcWallLumber, calcDrywall, calcPlywood, calcMaterials, calcHouseMaterials } from './calculator/index';
->>>>>>> feature/calculator
 
 calcHouseMaterialsCommand( yargs );
 
